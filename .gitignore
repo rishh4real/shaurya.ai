@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+.vercel/
+
+# Source screenshots are converted to optimized WebP assets before deployment.
+public/images/**/*.png
+!public/images/shaurya-favicon.png
