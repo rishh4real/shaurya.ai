@@ -1,21 +1,34 @@
-# shauryaa.ai
+# Shaurya Sharma — Portfolio
 
-Shaurya Sharma’s portfolio, built as a lightweight static site.
+I’m **Shaurya Sharma**, an 18-year-old developer from Hamirpur, Himachal Pradesh, currently studying Computer Science with a focus on AI and Machine Learning at Newton School of Technology in Pune.
 
-## Run locally
+I turn ideas into polished, useful digital experiences — from websites and landing pages to AI-powered workflows, MVPs, and full-stack products.
 
-```bash
-python3 -m http.server 4173
-```
+## What I do
 
-Then open `http://127.0.0.1:4173`.
+- Web development
+- Full-stack product builds
+- AI automations
+- UI/UX and landing pages
+- Brand strategy and visual design
+- Email marketing and Instagram handling
+- MVPs, integrations, SEO, and website support
 
-## Performance
+## Selected work
 
-- Portfolio screenshots use resized WebP assets.
-- Work previews and carousel images decode asynchronously and are lazy-loaded.
-- `vercel.json` caches static images and the neon animation bundle for repeat visits.
+- **Ikehu** — Executive search and talent advisory website
+- **The Protein Drop** — Food brand website and ordering experience
+- **Realtywize** — Real-estate advisory platform
 
-## Deploy
+## Currently building
 
-Import this repository into Vercel. The project is a static site with `index.html` at the repository root, so no build command is required.
+- **Katrankaari** — Circular lifestyle brand
+- **India SDG Trust** — Sustainable development platform
+- **NudgeHQ** — AI-enabled team operations SaaS
+
+## Let’s work together
+
+- Email: [rishh4work@gmail.com](mailto:rishh4work@gmail.com)
+- WhatsApp: [+91 70182 93100](https://wa.me/917018293100)
+- LinkedIn: [Shaurya Sharma](https://www.linkedin.com/in/shaurya-sharma-72ab8b376/)
+- Instagram: [@shauryaa.ai](https://www.instagram.com/shauryaa.ai/)
