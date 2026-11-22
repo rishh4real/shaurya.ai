@@ -123,12 +123,13 @@
       .ai-button--small:hover { border-color: rgba(255,255,255,.85); background: transparent; color: #fff; }
       .sportsu-player { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.18); background: #080808; box-shadow: 0 26px 66px rgba(0,0,0,.27); }
       .sportsu-video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #101010; object-fit: contain; }
-      .sportsu-controls { position: absolute; right: 0; bottom: 0; left: 0; padding: 15px clamp(15px, 3vw, 22px) 17px; background: linear-gradient(transparent, rgba(0,0,0,.88) 38%); }
+      .sportsu-controls { position: absolute; right: 0; bottom: 0; left: 0; padding: 15px clamp(15px, 3vw, 22px) 17px; background: linear-gradient(transparent, rgba(0,0,0,.88) 38%); opacity: 1; transition: opacity .24s ease; }
+      .sportsu-player.is-playing:not(.show-controls) .sportsu-controls { opacity: 0; pointer-events: none; }
       .sportsu-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 36px; color: #f0efea; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
       .sportsu-time { color: #d0cec9; font-variant-numeric: tabular-nums; }
       .sportsu-progress { position: absolute; right: clamp(15px, 3vw, 22px); bottom: 12px; left: clamp(15px, 3vw, 22px); height: 14px; display: flex; align-items: center; }
       .sportsu-progress input { width: 100%; height: 2px; margin: 0; accent-color: #f1f0ec; cursor: pointer; }
-      .sportsu-actions { display: flex; align-items: center; justify-content: center; gap: 10px; }
+      .sportsu-actions { display: flex; align-items: center; justify-content: center; }
       .sportsu-control { display: grid; width: 35px; height: 35px; place-items: center; padding: 0; border: 1px solid rgba(255,255,255,.32); border-radius: 50%; background: rgba(8,8,8,.62); color: #fff; font: 600 9px/1 inherit; cursor: pointer; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
       .sportsu-control:hover { border-color: #fff; background: rgba(255,255,255,.15); }
       .sportsu-control:active { transform: scale(.94); }
@@ -419,9 +420,7 @@
               <div class="sportsu-controls">
                 <div class="sportsu-meta"><span>Zupotsu AI · product walkthrough</span><span class="sportsu-time" data-sportsu-time>0:00 / 1:30</span></div>
                 <div class="sportsu-actions">
-                  <button class="sportsu-control" type="button" data-sportsu-back aria-label="Go back 10 seconds">−10</button>
                   <button class="sportsu-control sportsu-control--play" type="button" data-sportsu-play aria-label="Play video"></button>
-                  <button class="sportsu-control" type="button" data-sportsu-forward aria-label="Go forward 10 seconds">+10</button>
                 </div>
                 <label class="sportsu-progress"><span class="sr-only">Video progress</span><input type="range" min="0" max="100" value="0" step="0.1" data-sportsu-progress /></label>
               </div>
@@ -849,10 +848,9 @@
       if (sportsuPlayer) {
         const sportsuVideo = sportsuPlayer.querySelector('[data-sportsu-video]');
         const sportsuPlay = sportsuPlayer.querySelector('[data-sportsu-play]');
-        const sportsuBack = sportsuPlayer.querySelector('[data-sportsu-back]');
-        const sportsuForward = sportsuPlayer.querySelector('[data-sportsu-forward]');
         const sportsuProgress = sportsuPlayer.querySelector('[data-sportsu-progress]');
         const sportsuTime = sportsuPlayer.querySelector('[data-sportsu-time]');
+        let sportsuControlsTimer;
         const formatVideoTime = (seconds) => {
           const safeSeconds = Number.isFinite(seconds) ? Math.max(0, seconds) : 0;
           return `${Math.floor(safeSeconds / 60)}:${String(Math.floor(safeSeconds % 60)).padStart(2, '0')}`;
@@ -866,11 +864,17 @@
           sportsuPlay.setAttribute('aria-label', playing ? 'Pause video' : 'Play video');
         };
         const toggleSportsuPlayback = () => (sportsuVideo.paused ? sportsuVideo.play() : sportsuVideo.pause());
+        const showSportsuControls = () => {
+          sportsuPlayer.classList.add('show-controls');
+          window.clearTimeout(sportsuControlsTimer);
+          if (!sportsuVideo.paused) sportsuControlsTimer = window.setTimeout(() => sportsuPlayer.classList.remove('show-controls'), 2200);
+        };
         sportsuPlay.addEventListener('click', toggleSportsuPlayback);
-        sportsuVideo.addEventListener('click', toggleSportsuPlayback);
-        sportsuBack.addEventListener('click', () => { sportsuVideo.currentTime = Math.max(0, sportsuVideo.currentTime - 10); });
-        sportsuForward.addEventListener('click', () => { sportsuVideo.currentTime = Math.min(sportsuVideo.duration || 89.8, sportsuVideo.currentTime + 10); });
+        sportsuPlayer.addEventListener('mousemove', showSportsuControls);
+        sportsuVideo.addEventListener('click', showSportsuControls);
         sportsuProgress.addEventListener('input', () => { sportsuVideo.currentTime = ((sportsuVideo.duration || 89.8) * Number(sportsuProgress.value)) / 100; });
+        sportsuVideo.addEventListener('play', showSportsuControls);
+        sportsuVideo.addEventListener('pause', () => { window.clearTimeout(sportsuControlsTimer); sportsuPlayer.classList.add('show-controls'); });
         ['loadedmetadata', 'timeupdate', 'play', 'pause', 'ended'].forEach((eventName) => sportsuVideo.addEventListener(eventName, syncSportsuPlayer));
         syncSportsuPlayer();
       }
