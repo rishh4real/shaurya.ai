@@ -11,7 +11,7 @@
       html { scroll-behavior: smooth; }
       body { margin: 0; background: #030303; overflow-x: hidden; }
       .bloom { --pointer-x: 50%; --pointer-y: 50%; --text-x: 0px; --text-y: 0px; position: relative; display: grid; min-height: 100svh; place-items: center; overflow: hidden; background: #030303; }
-      .bloom::before, .caution-card::before, .about-section::before, .services-section::before, .work-section::before, .reviews-section::before, .contact-section::before { position: absolute; inset: -25%; z-index: 0; background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(220,220,210,.06), transparent 19%), radial-gradient(circle at 50% 50%, rgba(120,132,184,.045), transparent 34%); content: ""; filter: blur(28px); pointer-events: none; transition: background-position .7s ease-out; animation: ambient-drift 16s ease-in-out infinite alternate; }
+      .bloom::before, .caution-card::before, .about-section::before, .services-section::before, .logo-section::before, .work-section::before, .reviews-section::before, .contact-section::before { position: absolute; inset: -25%; z-index: 0; background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(220,220,210,.06), transparent 19%), radial-gradient(circle at 50% 50%, rgba(120,132,184,.045), transparent 34%); content: ""; filter: blur(28px); pointer-events: none; transition: background-position .7s ease-out; animation: ambient-drift 16s ease-in-out infinite alternate; }
       #bloom { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
       .tool-orbit { position: absolute; inset: 0; z-index: 1; margin: 0; padding: 0; list-style: none; pointer-events: none; }
       .tool-orbit li { position: absolute; top: var(--top); left: var(--left); width: var(--size, 54px); height: var(--size, 54px); display: grid; place-items: center; border: 1px solid rgba(255,255,255,.1); border-radius: 50%; background: radial-gradient(circle at 32% 26%, rgba(255,255,255,.12), rgba(255,255,255,.025) 55%, rgba(255,255,255,.008)); box-shadow: inset 0 1px 0 rgba(255,255,255,.13), 0 20px 50px rgba(0,0,0,.2); opacity: .63; transform: translate(-50%, -50%); animation: tool-float var(--duration, 9s) ease-in-out var(--delay, 0s) infinite alternate; }
@@ -83,33 +83,22 @@
       .service-toggle:hover { border-color: rgba(255,255,255,.75); color: #fff; }
       .partner-note { display: flex; gap: 20px; max-width: 660px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); color: #898984; font-size: 12px; line-height: 1.5; }
       .partner-note strong { min-width: 118px; color: #d7d7d1; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
-      .logo-section { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 116px) clamp(24px, 8vw, 140px); background: #080708; }
-      .logo-section::before { position: absolute; inset: -20%; background: radial-gradient(circle at 18% 50%, rgba(192,141,255,.12), transparent 24%), radial-gradient(circle at 83% 30%, rgba(124,102,255,.09), transparent 27%); content: ""; filter: blur(34px); pointer-events: none; }
+      .logo-section { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 116px) clamp(24px, 8vw, 140px); background: #030303; }
       .logo-content { position: relative; z-index: 1; width: min(1120px, 100%); margin: 0 auto; }
       .logo-header { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: clamp(34px, 5vw, 58px); }
-      .logo-kicker { margin: 0 0 15px; color: #a995cc; font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+      .logo-kicker { margin: 0 0 15px; color: #8b8b87; font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
       .logo-title { margin: 0; color: #f0f0eb; font-size: clamp(3rem, 6vw, 5.8rem); font-weight: 300; letter-spacing: -.08em; line-height: .84; }
-      .logo-note { max-width: 29ch; margin: 0; color: #98938f; font-size: 13px; line-height: 1.5; }
-      .logo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-      .logo-case { min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.025); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
-      .logo-case:hover { border-color: rgba(218,193,255,.48); background: rgba(255,255,255,.04); transform: translateY(-5px); }
-      .logo-art { position: relative; display: grid; min-height: 290px; overflow: hidden; place-items: center; background: #0f0d15; }
-      .logo-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
-      .logo-art--elsewhere img { object-fit: cover; object-position: 50% 43%; }
-      .logo-art--simlee { padding: clamp(24px, 4vw, 42px); background: #1a1037; }
-      .logo-art--simlee img { max-width: 220px; border-radius: 22%; box-shadow: 0 20px 42px rgba(0,0,0,.34); }
-      .logo-art--katrankaari { padding: clamp(24px, 4vw, 48px); background: #f1f0ec; }
-      .logo-art--katrankaari img { max-width: 235px; mix-blend-mode: multiply; }
-      .logo-hotspot { position: absolute; top: var(--hotspot-y); left: var(--hotspot-x); width: 15px; height: 15px; padding: 0; border: 2px solid #fff; border-radius: 50%; background: #c7a1ff; box-shadow: 0 0 0 5px rgba(199,161,255,.22), 0 0 21px rgba(199,161,255,.9); cursor: pointer; transform: translate(-50%, -50%); transition: transform .2s ease, background .2s ease; }
-      .logo-hotspot::before { position: absolute; inset: -8px; border: 1px solid rgba(224,207,255,.75); border-radius: inherit; content: ""; animation: logo-pulse 1.9s ease-out infinite; }
-      .logo-hotspot:hover, .logo-hotspot:focus-visible, .logo-hotspot[aria-expanded="true"] { background: #fff; transform: translate(-50%, -50%) scale(1.15); outline: none; }
-      .logo-callout { position: absolute; right: 14px; bottom: 14px; left: 14px; margin: 0; padding: 12px 14px; border: 1px solid rgba(255,255,255,.26); background: rgba(7,6,10,.84); color: #ece7f4; font-size: 11px; line-height: 1.45; backdrop-filter: blur(10px); }
-      .logo-art--katrankaari .logo-callout { border-color: rgba(0,0,0,.16); background: rgba(255,255,255,.88); color: #171417; }
-      .logo-case-copy { padding: 18px 18px 20px; }
-      .logo-case-number { display: block; margin-bottom: 13px; color: #8e838f; font-size: 10px; font-weight: 600; letter-spacing: .13em; }
-      .logo-case h3 { margin: 0 0 9px; color: #eae7e8; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.65rem, 2.4vw, 2.25rem); font-weight: 400; letter-spacing: -.06em; line-height: .92; }
-      .logo-case p { margin: 0; color: #989395; font-size: 12px; line-height: 1.5; }
-      .logo-hint { display: block; margin-top: 14px; color: #cbb2ff; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+      .logo-note { max-width: 29ch; margin: 0; color: #898984; font-size: 13px; line-height: 1.5; }
+      .logo-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(26px, 5vw, 70px); }
+      .logo-case { min-width: 0; }
+      .logo-art { position: relative; display: flex; align-items: center; min-height: 175px; overflow: visible; }
+      .logo-art img { display: block; max-width: 100%; height: auto; object-fit: contain; }
+      .logo-art--elsewhere img { width: min(100%, 265px); }
+      .logo-art--simlee img { width: min(148px, 45vw); border-radius: 19%; }
+      .logo-art--katrankaari img { width: min(150px, 42vw); filter: invert(1); }
+      .logo-case-copy { align-self: center; }
+      .logo-case h3 { margin: 0 0 10px; color: #eae7e8; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.75rem, 2.6vw, 2.65rem); font-weight: 400; letter-spacing: -.075em; line-height: .88; }
+      .logo-case p { max-width: 29ch; margin: 0; color: #989395; font-size: 12px; line-height: 1.55; }
       .work-section { position: relative; overflow: hidden; padding: clamp(64px, 7vw, 92px) clamp(24px, 8vw, 140px); background: #030303; }
       .work-content { position: relative; z-index: 2; width: min(1120px, 100%); margin: 0 auto; }
       .work-header { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: clamp(34px, 5vw, 58px); }
@@ -210,7 +199,7 @@
       @keyframes tool-float { from { transform: translate(-50%, -50%) translate3d(-6px, -8px, 0) rotate(-4deg); } to { transform: translate(-50%, -50%) translate3d(8px, 10px, 0) rotate(5deg); } }
       @keyframes tape-loop { 0%, 5% { opacity: 0; transform: var(--rotation) scaleX(0); } 14%, 84% { opacity: 1; transform: var(--rotation) scaleX(1); } 100% { opacity: 0; transform: var(--rotation) scaleX(0); } }
       @keyframes logo-pulse { 0% { opacity: .85; transform: scale(.55); } 75%, 100% { opacity: 0; transform: scale(1.35); } }
-      @media (max-width: 760px) { .featured-work { grid-template-columns: 1fr; gap: 28px; } .ongoing-work-heading { align-items: start; flex-direction: column; gap: 22px; } .work-preview { width: min(350px, 100%); justify-self: start; } .about-content { grid-template-columns: 1fr; gap: 36px; } .about-switcher { min-height: 580px; } .about-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; } .contact-primary { grid-template-columns: 1fr; gap: 24px; } .services-intro { min-height: 0; display: grid; grid-template-columns: 1fr; margin-bottom: 16px; } .services-heading { position: static; transform: none; } .services-neon-loop { position: static; width: min(190px, 48vw); justify-self: end; margin-top: -24px; margin-right: 4vw; transform: none; } .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-header { align-items: start; flex-direction: column; } .logo-grid { grid-template-columns: 1fr; } .logo-art { min-height: min(68vw, 370px); } }
+      @media (max-width: 760px) { .featured-work { grid-template-columns: 1fr; gap: 28px; } .ongoing-work-heading { align-items: start; flex-direction: column; gap: 22px; } .work-preview { width: min(350px, 100%); justify-self: start; } .about-content { grid-template-columns: 1fr; gap: 36px; } .about-switcher { min-height: 580px; } .about-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; } .contact-primary { grid-template-columns: 1fr; gap: 24px; } .services-intro { min-height: 0; display: grid; grid-template-columns: 1fr; margin-bottom: 16px; } .services-heading { position: static; transform: none; } .services-neon-loop { position: static; width: min(190px, 48vw); justify-self: end; margin-top: -24px; margin-right: 4vw; transform: none; } .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-header { align-items: start; flex-direction: column; } .logo-list { grid-template-columns: 1fr; gap: 42px; } .logo-art { min-height: 145px; } }
       @media (max-width: 760px) { .reviews-top { align-items: start; flex-direction: column; } .reviews-grid, .contact-list { grid-template-columns: 1fr; } .review-card { min-height: 0; } }
       @media (max-width: 640px) { .tool-orbit li:nth-child(n+7) { display: none; } .tool-orbit li { opacity: .4; } .site-nav { left: 12px; right: 12px; } .tape-1 { left: -2.25rem; } .tape-2 { right: -2.8rem; } .tape-3 { left: -3.2rem; } .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; } .service { min-height: 0; padding: 14px 0 19px; } .service-number { margin-bottom: 15px; } .service h3 { font-size: 1rem; line-height: 1.08; } .service p { font-size: 11px; line-height: 1.4; } .service-toggle { display: inline-flex; } .services-grid:not(.is-expanded) .service:nth-child(n+7) { display: none; } .partner-note { flex-direction: column; gap: 8px; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bloom::before, .caution-card::before, .about-section::before, .services-section::before, .work-section::before, h1, h1 span, .subhead, .internship-status, .social-nav, .tape, .tool-orbit li, .about-portrait, .about-portrait::after, .work-modal-dialog { animation: none; } h1, .subhead, .internship-status, .social-nav, .reveal { opacity: 1; transform: none; } .tape { opacity: 1; transform: var(--rotation) scaleX(1); } }
@@ -328,52 +317,41 @@
         </div>
       </section>
       <section class="logo-section" id="identity" aria-labelledby="identity-title">
+        <canvas class="constellation" id="logo-bloom" aria-hidden="true"></canvas>
         <div class="logo-content reveal">
           <div class="logo-header">
             <div>
-              <p class="logo-kicker">Selected identity work</p>
+              <p class="logo-kicker">Selected brand marks</p>
               <h2 class="logo-title" id="identity-title">Logo work.</h2>
             </div>
-            <p class="logo-note">A mark is a tiny story. Tap a glowing dot to see the thinking behind each identity.</p>
+            <p class="logo-note">A small selection of marks.</p>
           </div>
-          <div class="logo-grid">
+          <div class="logo-list">
             <article class="logo-case">
               <div class="logo-art logo-art--elsewhere">
-                <img src="/public/images/brand-marks/your-elsewhere.webp" alt="Your Elsewhere identity with a disco ball and party crowd" loading="lazy" decoding="async" />
-                <button class="logo-hotspot" type="button" style="--hotspot-x: 52%; --hotspot-y: 23%;" data-logo-hotspot aria-controls="elsewhere-note" aria-expanded="false" aria-label="Explain the disco ball in the Your Elsewhere logo"></button>
-                <p class="logo-callout" id="elsewhere-note" hidden>The disco ball makes the promise immediate: this is a place where the mood changes after dark.</p>
+                <img src="/public/images/brand-marks/your-elsewhere-mark.webp" alt="Your Elsewhere party and events logo" loading="lazy" decoding="async" />
               </div>
               <div class="logo-case-copy">
-                <span class="logo-case-number">01 / IDENTITY</span>
                 <h3>Your Elsewhere.</h3>
-                <p>A house-party and social-events identity made to feel like an escape from the usual.</p>
-                <span class="logo-hint">Tap the dot · why this works</span>
+                <p>An events brand curating house parties and social nights outside the usual.</p>
               </div>
             </article>
             <article class="logo-case">
               <div class="logo-art logo-art--simlee">
-                <img src="/public/images/brand-marks/simlee.webp" alt="Simlee AI SaaS platform logo" loading="lazy" decoding="async" />
-                <button class="logo-hotspot" type="button" style="--hotspot-x: 67%; --hotspot-y: 70%;" data-logo-hotspot aria-controls="simlee-note" aria-expanded="false" aria-label="Explain the dot in the Simlee logo"></button>
-                <p class="logo-callout" id="simlee-note" hidden>The N becomes a clear signal mark, while the dot feels like a useful update has just arrived.</p>
+                <img src="/public/images/brand-marks/simlee.webp" alt="NudgeHQ AI SaaS platform logo" loading="lazy" decoding="async" />
               </div>
               <div class="logo-case-copy">
-                <span class="logo-case-number">02 / IDENTITY</span>
-                <h3>Simlee.</h3>
-                <p>An AI SaaS platform mark designed to feel smart, direct, and friendly at product scale.</p>
-                <span class="logo-hint">Tap the dot · why this works</span>
+                <h3>NudgeHQ.</h3>
+                <p>An AI-powered SaaS platform helping teams track progress, spot blockers, and move faster.</p>
               </div>
             </article>
             <article class="logo-case">
               <div class="logo-art logo-art--katrankaari">
-                <img src="/public/images/brand-marks/katrankaari.webp" alt="Katrankaari mirrored K logo mark" loading="lazy" decoding="async" />
-                <button class="logo-hotspot" type="button" style="--hotspot-x: 50%; --hotspot-y: 51%;" data-logo-hotspot aria-controls="katrankaari-note" aria-expanded="false" aria-label="Explain the Katrankaari logo mark"></button>
-                <p class="logo-callout" id="katrankaari-note" hidden>The mirrored K reads as a stitched, folded form — a simple mark that can live naturally in a browser tab.</p>
+                <img src="/public/images/brand-marks/katrankaari-mark-transparent.webp" alt="Katrankaari mirrored K browser mark" loading="lazy" decoding="async" />
               </div>
               <div class="logo-case-copy">
-                <span class="logo-case-number">03 / MOCK BROWSER MARK</span>
                 <h3>Katrankaari.</h3>
-                <p>A clean browser-ready mark for a circular lifestyle brand built around reimagining textile waste.</p>
-                <span class="logo-hint">Tap the dot · why this works</span>
+                <p>An upcycled accessories brand turning textile waste into useful, everyday pieces.</p>
               </div>
             </article>
           </div>
@@ -384,8 +362,8 @@
         <div class="work-content reveal">
           <div class="work-header">
             <div>
-              <p class="work-kicker">Completed client work</p>
-              <h2 class="work-title" id="work-title">Work.</h2>
+              <p class="work-kicker">Completed client websites</p>
+              <h2 class="work-title" id="work-title">Website work.</h2>
             </div>
             <p class="work-note">Every project is shaped around the client’s goals, requirements, and the people they need to reach.</p>
           </div>
@@ -743,16 +721,31 @@
         syncServicesToggle();
       }
 
-      const logoHotspots = Array.from(document.querySelectorAll('[data-logo-hotspot]'));
-      logoHotspots.forEach((hotspot) => {
-        const note = document.getElementById(hotspot.getAttribute('aria-controls'));
-        if (!note) return;
-        hotspot.addEventListener('click', () => {
-          const shouldOpen = note.hidden;
-          note.hidden = !shouldOpen;
-          hotspot.setAttribute('aria-expanded', String(shouldOpen));
-        });
-      });
+      const logoCanvas = document.querySelector('#logo-bloom');
+      const logoContext = logoCanvas.getContext('2d');
+      let logoWidth, logoHeight, logoPoints;
+      function resizeLogo() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        logoWidth = logoCanvas.clientWidth; logoHeight = logoCanvas.clientHeight;
+        logoCanvas.width = logoWidth * ratio; logoCanvas.height = logoHeight * ratio;
+        logoContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+        const amount = Math.max(58, Math.min(132, Math.floor(logoWidth * logoHeight / 14500)));
+        logoPoints = Array.from({ length: amount }, () => ({ x: Math.random() * logoWidth, y: Math.random() * logoHeight, vx: (Math.random() - .5) * .18, vy: (Math.random() - .5) * .18, r: Math.random() * 1.15 + .25 }));
+      }
+      function tickLogo() {
+        logoContext.clearRect(0, 0, logoWidth, logoHeight);
+        for (const point of logoPoints) {
+          if (!reducedMotion) { point.x += point.vx; point.y += point.vy; if (point.x < -10 || point.x > logoWidth + 10) point.vx *= -1; if (point.y < -10 || point.y > logoHeight + 10) point.vy *= -1; }
+        }
+        for (let i = 0; i < logoPoints.length; i++) for (let j = i + 1; j < logoPoints.length; j++) {
+          const a = logoPoints[i], b = logoPoints[j], distance = Math.hypot(a.x - b.x, a.y - b.y);
+          if (distance < 145) { logoContext.beginPath(); logoContext.moveTo(a.x, a.y); logoContext.lineTo(b.x, b.y); logoContext.strokeStyle = `rgba(180,180,174,${.15 * (1 - distance / 145)})`; logoContext.lineWidth = .6; logoContext.stroke(); }
+        }
+        for (const point of logoPoints) { logoContext.beginPath(); logoContext.arc(point.x, point.y, point.r, 0, Math.PI * 2); logoContext.fillStyle = 'rgba(222,222,218,.72)'; logoContext.fill(); }
+        if (!reducedMotion) requestAnimationFrame(tickLogo);
+      }
+      window.addEventListener('resize', resizeLogo);
+      resizeLogo(); tickLogo();
 
       const workCanvas = document.querySelector('#work-bloom');
       const workContext = workCanvas.getContext('2d');
