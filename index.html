@@ -83,6 +83,33 @@
       .service-toggle:hover { border-color: rgba(255,255,255,.75); color: #fff; }
       .partner-note { display: flex; gap: 20px; max-width: 660px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.12); color: #898984; font-size: 12px; line-height: 1.5; }
       .partner-note strong { min-width: 118px; color: #d7d7d1; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+      .logo-section { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 116px) clamp(24px, 8vw, 140px); background: #080708; }
+      .logo-section::before { position: absolute; inset: -20%; background: radial-gradient(circle at 18% 50%, rgba(192,141,255,.12), transparent 24%), radial-gradient(circle at 83% 30%, rgba(124,102,255,.09), transparent 27%); content: ""; filter: blur(34px); pointer-events: none; }
+      .logo-content { position: relative; z-index: 1; width: min(1120px, 100%); margin: 0 auto; }
+      .logo-header { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: clamp(34px, 5vw, 58px); }
+      .logo-kicker { margin: 0 0 15px; color: #a995cc; font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+      .logo-title { margin: 0; color: #f0f0eb; font-size: clamp(3rem, 6vw, 5.8rem); font-weight: 300; letter-spacing: -.08em; line-height: .84; }
+      .logo-note { max-width: 29ch; margin: 0; color: #98938f; font-size: 13px; line-height: 1.5; }
+      .logo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .logo-case { min-width: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.13); background: rgba(255,255,255,.025); transition: transform .25s ease, border-color .25s ease, background .25s ease; }
+      .logo-case:hover { border-color: rgba(218,193,255,.48); background: rgba(255,255,255,.04); transform: translateY(-5px); }
+      .logo-art { position: relative; display: grid; min-height: 290px; overflow: hidden; place-items: center; background: #0f0d15; }
+      .logo-art img { display: block; width: 100%; height: 100%; object-fit: contain; }
+      .logo-art--elsewhere img { object-fit: cover; object-position: 50% 43%; }
+      .logo-art--simlee { padding: clamp(24px, 4vw, 42px); background: #1a1037; }
+      .logo-art--simlee img { max-width: 220px; border-radius: 22%; box-shadow: 0 20px 42px rgba(0,0,0,.34); }
+      .logo-art--katrankaari { padding: clamp(24px, 4vw, 48px); background: #f1f0ec; }
+      .logo-art--katrankaari img { max-width: 235px; mix-blend-mode: multiply; }
+      .logo-hotspot { position: absolute; top: var(--hotspot-y); left: var(--hotspot-x); width: 15px; height: 15px; padding: 0; border: 2px solid #fff; border-radius: 50%; background: #c7a1ff; box-shadow: 0 0 0 5px rgba(199,161,255,.22), 0 0 21px rgba(199,161,255,.9); cursor: pointer; transform: translate(-50%, -50%); transition: transform .2s ease, background .2s ease; }
+      .logo-hotspot::before { position: absolute; inset: -8px; border: 1px solid rgba(224,207,255,.75); border-radius: inherit; content: ""; animation: logo-pulse 1.9s ease-out infinite; }
+      .logo-hotspot:hover, .logo-hotspot:focus-visible, .logo-hotspot[aria-expanded="true"] { background: #fff; transform: translate(-50%, -50%) scale(1.15); outline: none; }
+      .logo-callout { position: absolute; right: 14px; bottom: 14px; left: 14px; margin: 0; padding: 12px 14px; border: 1px solid rgba(255,255,255,.26); background: rgba(7,6,10,.84); color: #ece7f4; font-size: 11px; line-height: 1.45; backdrop-filter: blur(10px); }
+      .logo-art--katrankaari .logo-callout { border-color: rgba(0,0,0,.16); background: rgba(255,255,255,.88); color: #171417; }
+      .logo-case-copy { padding: 18px 18px 20px; }
+      .logo-case-number { display: block; margin-bottom: 13px; color: #8e838f; font-size: 10px; font-weight: 600; letter-spacing: .13em; }
+      .logo-case h3 { margin: 0 0 9px; color: #eae7e8; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.65rem, 2.4vw, 2.25rem); font-weight: 400; letter-spacing: -.06em; line-height: .92; }
+      .logo-case p { margin: 0; color: #989395; font-size: 12px; line-height: 1.5; }
+      .logo-hint { display: block; margin-top: 14px; color: #cbb2ff; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
       .work-section { position: relative; overflow: hidden; padding: clamp(64px, 7vw, 92px) clamp(24px, 8vw, 140px); background: #030303; }
       .work-content { position: relative; z-index: 2; width: min(1120px, 100%); margin: 0 auto; }
       .work-header { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: clamp(34px, 5vw, 58px); }
@@ -182,7 +209,8 @@
       @keyframes sketch-float { from { transform: translate3d(0, -8px, 0); } to { transform: translate3d(-10px, 8px, 0); } }
       @keyframes tool-float { from { transform: translate(-50%, -50%) translate3d(-6px, -8px, 0) rotate(-4deg); } to { transform: translate(-50%, -50%) translate3d(8px, 10px, 0) rotate(5deg); } }
       @keyframes tape-loop { 0%, 5% { opacity: 0; transform: var(--rotation) scaleX(0); } 14%, 84% { opacity: 1; transform: var(--rotation) scaleX(1); } 100% { opacity: 0; transform: var(--rotation) scaleX(0); } }
-      @media (max-width: 760px) { .featured-work { grid-template-columns: 1fr; gap: 28px; } .ongoing-work-heading { align-items: start; flex-direction: column; gap: 22px; } .work-preview { width: min(350px, 100%); justify-self: start; } .about-content { grid-template-columns: 1fr; gap: 36px; } .about-switcher { min-height: 580px; } .about-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; } .contact-primary { grid-template-columns: 1fr; gap: 24px; } .services-intro { min-height: 0; display: grid; grid-template-columns: 1fr; margin-bottom: 16px; } .services-heading { position: static; transform: none; } .services-neon-loop { position: static; width: min(190px, 48vw); justify-self: end; margin-top: -24px; margin-right: 4vw; transform: none; } .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @keyframes logo-pulse { 0% { opacity: .85; transform: scale(.55); } 75%, 100% { opacity: 0; transform: scale(1.35); } }
+      @media (max-width: 760px) { .featured-work { grid-template-columns: 1fr; gap: 28px; } .ongoing-work-heading { align-items: start; flex-direction: column; gap: 22px; } .work-preview { width: min(350px, 100%); justify-self: start; } .about-content { grid-template-columns: 1fr; gap: 36px; } .about-switcher { min-height: 580px; } .about-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px; } .contact-primary { grid-template-columns: 1fr; gap: 24px; } .services-intro { min-height: 0; display: grid; grid-template-columns: 1fr; margin-bottom: 16px; } .services-heading { position: static; transform: none; } .services-neon-loop { position: static; width: min(190px, 48vw); justify-self: end; margin-top: -24px; margin-right: 4vw; transform: none; } .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-header { align-items: start; flex-direction: column; } .logo-grid { grid-template-columns: 1fr; } .logo-art { min-height: min(68vw, 370px); } }
       @media (max-width: 760px) { .reviews-top { align-items: start; flex-direction: column; } .reviews-grid, .contact-list { grid-template-columns: 1fr; } .review-card { min-height: 0; } }
       @media (max-width: 640px) { .tool-orbit li:nth-child(n+7) { display: none; } .tool-orbit li { opacity: .4; } .site-nav { left: 12px; right: 12px; } .tape-1 { left: -2.25rem; } .tape-2 { right: -2.8rem; } .tape-3 { left: -3.2rem; } .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; } .service { min-height: 0; padding: 14px 0 19px; } .service-number { margin-bottom: 15px; } .service h3 { font-size: 1rem; line-height: 1.08; } .service p { font-size: 11px; line-height: 1.4; } .service-toggle { display: inline-flex; } .services-grid:not(.is-expanded) .service:nth-child(n+7) { display: none; } .partner-note { flex-direction: column; gap: 8px; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bloom::before, .caution-card::before, .about-section::before, .services-section::before, .work-section::before, h1, h1 span, .subhead, .internship-status, .social-nav, .tape, .tool-orbit li, .about-portrait, .about-portrait::after, .work-modal-dialog { animation: none; } h1, .subhead, .internship-status, .social-nav, .reveal { opacity: 1; transform: none; } .tape { opacity: 1; transform: var(--rotation) scaleX(1); } }
@@ -297,6 +325,58 @@
           </div>
           <button class="service-toggle" type="button" data-services-toggle aria-expanded="false">Show 5 more services</button>
           <div class="partner-note"><strong>How I work</strong><span>For content creation and video editing, I lead the brief, creative direction, and delivery with trusted creative collaborators when a project needs extra hands.</span></div>
+        </div>
+      </section>
+      <section class="logo-section" id="identity" aria-labelledby="identity-title">
+        <div class="logo-content reveal">
+          <div class="logo-header">
+            <div>
+              <p class="logo-kicker">Selected identity work</p>
+              <h2 class="logo-title" id="identity-title">Logo work.</h2>
+            </div>
+            <p class="logo-note">A mark is a tiny story. Tap a glowing dot to see the thinking behind each identity.</p>
+          </div>
+          <div class="logo-grid">
+            <article class="logo-case">
+              <div class="logo-art logo-art--elsewhere">
+                <img src="/public/images/brand-marks/your-elsewhere.webp" alt="Your Elsewhere identity with a disco ball and party crowd" loading="lazy" decoding="async" />
+                <button class="logo-hotspot" type="button" style="--hotspot-x: 52%; --hotspot-y: 23%;" data-logo-hotspot aria-controls="elsewhere-note" aria-expanded="false" aria-label="Explain the disco ball in the Your Elsewhere logo"></button>
+                <p class="logo-callout" id="elsewhere-note" hidden>The disco ball makes the promise immediate: this is a place where the mood changes after dark.</p>
+              </div>
+              <div class="logo-case-copy">
+                <span class="logo-case-number">01 / IDENTITY</span>
+                <h3>Your Elsewhere.</h3>
+                <p>A house-party and social-events identity made to feel like an escape from the usual.</p>
+                <span class="logo-hint">Tap the dot · why this works</span>
+              </div>
+            </article>
+            <article class="logo-case">
+              <div class="logo-art logo-art--simlee">
+                <img src="/public/images/brand-marks/simlee.webp" alt="Simlee AI SaaS platform logo" loading="lazy" decoding="async" />
+                <button class="logo-hotspot" type="button" style="--hotspot-x: 67%; --hotspot-y: 70%;" data-logo-hotspot aria-controls="simlee-note" aria-expanded="false" aria-label="Explain the dot in the Simlee logo"></button>
+                <p class="logo-callout" id="simlee-note" hidden>The N becomes a clear signal mark, while the dot feels like a useful update has just arrived.</p>
+              </div>
+              <div class="logo-case-copy">
+                <span class="logo-case-number">02 / IDENTITY</span>
+                <h3>Simlee.</h3>
+                <p>An AI SaaS platform mark designed to feel smart, direct, and friendly at product scale.</p>
+                <span class="logo-hint">Tap the dot · why this works</span>
+              </div>
+            </article>
+            <article class="logo-case">
+              <div class="logo-art logo-art--katrankaari">
+                <img src="/public/images/brand-marks/katrankaari.webp" alt="Katrankaari mirrored K logo mark" loading="lazy" decoding="async" />
+                <button class="logo-hotspot" type="button" style="--hotspot-x: 50%; --hotspot-y: 51%;" data-logo-hotspot aria-controls="katrankaari-note" aria-expanded="false" aria-label="Explain the Katrankaari logo mark"></button>
+                <p class="logo-callout" id="katrankaari-note" hidden>The mirrored K reads as a stitched, folded form — a simple mark that can live naturally in a browser tab.</p>
+              </div>
+              <div class="logo-case-copy">
+                <span class="logo-case-number">03 / MOCK BROWSER MARK</span>
+                <h3>Katrankaari.</h3>
+                <p>A clean browser-ready mark for a circular lifestyle brand built around reimagining textile waste.</p>
+                <span class="logo-hint">Tap the dot · why this works</span>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
       <section class="work-section" id="work" aria-labelledby="work-title">
@@ -662,6 +742,17 @@
         });
         syncServicesToggle();
       }
+
+      const logoHotspots = Array.from(document.querySelectorAll('[data-logo-hotspot]'));
+      logoHotspots.forEach((hotspot) => {
+        const note = document.getElementById(hotspot.getAttribute('aria-controls'));
+        if (!note) return;
+        hotspot.addEventListener('click', () => {
+          const shouldOpen = note.hidden;
+          note.hidden = !shouldOpen;
+          hotspot.setAttribute('aria-expanded', String(shouldOpen));
+        });
+      });
 
       const workCanvas = document.querySelector('#work-bloom');
       const workContext = workCanvas.getContext('2d');
