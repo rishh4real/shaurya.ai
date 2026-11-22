@@ -106,7 +106,7 @@
       .logo-case p { max-width: 29ch; margin: 0; color: #989395; font-size: 12px; line-height: 1.55; }
       .ai-section { position: relative; overflow: hidden; padding: clamp(72px, 8vw, 116px) clamp(24px, 8vw, 140px); background: #030303; }
       .ai-content { position: relative; z-index: 1; width: min(1120px, 100%); margin: 0 auto; }
-      .ai-panel { display: grid; grid-template-columns: minmax(0, .88fr) minmax(330px, .92fr); align-items: center; gap: clamp(38px, 8vw, 110px); padding: clamp(30px, 5vw, 64px) 0; border-top: 1px solid rgba(255,255,255,.16); border-bottom: 1px solid rgba(255,255,255,.16); }
+      .ai-panel { display: grid; grid-template-columns: minmax(250px, .62fr) minmax(0, 1.38fr); align-items: center; gap: clamp(30px, 5vw, 68px); padding: clamp(30px, 5vw, 64px) 0; border-top: 1px solid rgba(255,255,255,.16); border-bottom: 1px solid rgba(255,255,255,.16); }
       .ai-kicker { margin: 0 0 16px; color: #8b8b87; font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
       .ai-title { max-width: 8ch; margin: 0; color: #f0f0eb; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3.1rem, 5.8vw, 5.8rem); font-weight: 400; letter-spacing: -.09em; line-height: .78; }
       .ai-project-number { display: block; margin-top: 29px; color: #898984; font-size: 10px; font-weight: 600; letter-spacing: .14em; }
@@ -119,6 +119,8 @@
       .ai-button:hover { border-color: rgba(255,255,255,.7); background: rgba(255,255,255,.08); color: #fff; }
       .ai-button--solid { border-color: #e9e8e2; background: #e9e8e2; color: #0b0b0b; }
       .ai-button--solid:hover { border-color: #fff; background: #fff; color: #000; }
+      .ai-button--small { min-height: 34px; padding: 0 0 7px; border-width: 0 0 1px; color: #d8d7d1; }
+      .ai-button--small:hover { border-color: rgba(255,255,255,.85); background: transparent; color: #fff; }
       .sportsu-player { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.18); background: #080808; box-shadow: 0 26px 66px rgba(0,0,0,.27); }
       .sportsu-video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #101010; object-fit: contain; }
       .sportsu-controls { position: absolute; right: 0; bottom: 0; left: 0; padding: 15px clamp(15px, 3vw, 22px) 17px; background: linear-gradient(transparent, rgba(0,0,0,.88) 38%); }
@@ -401,14 +403,13 @@
         <div class="ai-content reveal">
           <div class="ai-panel">
             <div>
-              <p class="ai-kicker">Ongoing work</p>
-              <h2 class="ai-title" id="ai-work-title">Ongoing work.</h2>
-              <span class="ai-project-number">01 / ONGOING AI WORK</span>
+              <h2 class="ai-title" id="ai-work-title">Your own AI.</h2>
+              <span class="ai-project-number">01 / SPORTS AGENCY AI</span>
               <h3 class="ai-project-name">Zupotsu AI.</h3>
               <p class="ai-copy">A fully automated AI platform for a sports agency. It can answer questions about agency work or players, compare options, and turn research into clear, useful answers in one place.</p>
               <span class="ai-status">Currently building</span>
               <div class="ai-actions">
-                <a class="ai-button ai-button--solid" href="https://zupotsu.vercel.app/ai.html" target="_blank" rel="noreferrer">Check in with the AI ↗</a>
+                <a class="ai-button ai-button--small" href="https://zupotsu.vercel.app/ai.html" target="_blank" rel="noreferrer">Check in with the AI ↗</a>
               </div>
             </div>
             <div class="sportsu-player" data-sportsu-player>
